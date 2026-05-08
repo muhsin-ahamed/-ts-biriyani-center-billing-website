@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="min-h-screen print:min-h-0 bg-gray-100 py-8 px-4 font-sans flex flex-col items-center print:bg-white print:py-0 print:block print:p-0 m-0">
       {/* POS Receipt Container */}
-      <div id="receipt-content" className="w-full sm:max-w-md bg-white shadow-xl p-7 sm:p-8 text-gray-800 print:shadow-none print:border-2 print:border-black print:w-full print:max-w-none print:mx-auto print:p-6">
+      <div id="receipt-content" className="w-full sm:max-w-md bg-white shadow-xl p-7 sm:p-8 text-gray-800 print:shadow-none print:border-2 print:border-black print:w-full print:max-w-none print:mx-auto print:p-4">
 
         {/* Header */}
         <div className="text-center mb-4">
@@ -174,23 +174,34 @@ function App() {
         __html: `
         @media print {
           @page { 
-            margin: 0;
-            size: A5 portrait;
+            margin: 5mm;
+            size: auto;
+          }
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            box-sizing: border-box !important;
           }
           html, body, #root {
-            height: max-content !important;
+            height: auto !important;
             min-height: 0 !important;
             margin: 0 !important;
             padding: 0 !important;
             overflow: visible !important;
+            width: 100% !important;
           }
           body {
             background-color: white !important;
             color: black !important;
-            padding: 1cm !important;
+            display: flex !important;
+            justify-content: center !important;
+            padding: 0 !important;
           }
           #receipt-content {
             break-inside: avoid !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
           }
           /* Hide number input spinners */
           input[type=number]::-webkit-inner-spin-button, 
