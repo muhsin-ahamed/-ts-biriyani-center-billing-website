@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Printer, Plus, Trash2, Download } from 'lucide-react';
+import { Printer, Plus, Trash2 } from 'lucide-react';
 
 function App() {
   const [customerName, setCustomerName] = useState('');
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="min-h-screen print:min-h-0 bg-gray-100 py-8 px-4 font-sans flex flex-col items-center print:bg-white print:py-0 print:block print:p-0 m-0">
       {/* POS Receipt Container */}
-      <div id="receipt-content" className="w-full sm:max-w-md bg-white shadow-xl p-7 sm:p-8 text-gray-800 print:shadow-none print:border-2 print:border-black print:w-full print:max-w-none print:mx-auto print:p-4">
+      <div id="receipt-content" className="w-full sm:max-w-md bg-white shadow-xl p-6 sm:p-8 text-gray-800 print:shadow-none print:border-2 print:border-black print:w-full print:max-w-none print:mx-auto">
 
         {/* Header */}
         <div className="text-center mb-4">
@@ -44,7 +44,7 @@ function App() {
           <p className="text-sm">Ph: 9947929206</p>
         </div>
 
-        <div className="flex items-center justify-center my-4 -mx-6 sm:-mx-8 print:-mx-6">
+        <div className="flex items-center justify-center my-4 -mx-6 sm:-mx-8 print:-mx-[0.5cm]">
           <div className="flex-1 border-b border-black"></div>
           <span className="px-4 text-sm font-semibold tracking-widest">Bill</span>
           <div className="flex-1 border-b border-black"></div>
@@ -73,10 +73,10 @@ function App() {
           </div>
         </div>
 
-        <div className="border-b border-black mb-2 -mx-6 sm:-mx-8 print:-mx-6"></div>
+        <div className="border-b border-black mb-2 -mx-6 sm:-mx-8 print:-mx-[0.5cm]"></div>
 
         {/* Order Details Header */}
-        <div className="flex text-sm font-bold pb-2 mb-2 border-b border-black -mx-6 sm:-mx-8 print:-mx-6 px-6 sm:px-8 print:px-6">
+        <div className="flex text-sm font-bold pb-2 mb-2 border-b border-black -mx-6 sm:-mx-8 print:-mx-[0.5cm] px-6 sm:px-8 print:px-[0.5cm]">
           <div className="flex-[2] min-w-0">Item</div>
           <div className="flex-1 text-right min-w-0">Price</div>
           <div className="flex-1 text-center min-w-0">Qty</div>
@@ -133,8 +133,6 @@ function App() {
           ))}
         </div>
 
-
-
         {/* Totals */}
         <div className="flex flex-col items-end text-sm mb-4 mt-6 py-4">
           <div className="flex w-full sm:w-2/3 justify-between font-bold text-lg">
@@ -143,7 +141,7 @@ function App() {
           </div>
         </div>
 
-        <div className="border-b border-black mb-6 -mx-6 sm:-mx-8 print:-mx-6"></div>
+        <div className="border-b border-black mb-6 -mx-6 sm:-mx-8 print:-mx-[0.5cm]"></div>
 
         {/* Footer */}
         <div className="text-center text-sm">
@@ -170,11 +168,10 @@ function App() {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style dangerouslySetInnerHTML={{ __html: `
         @media print {
-          @page { 
-            margin: 5mm;
+          @page {
+            margin: 0;
             size: auto;
           }
           * {
@@ -195,13 +192,15 @@ function App() {
             color: black !important;
             display: flex !important;
             justify-content: center !important;
-            padding: 0 !important;
+            padding: 1cm !important;
           }
           #receipt-content {
             break-inside: avoid !important;
             width: 100% !important;
             max-width: 100% !important;
             margin: 0 auto !important;
+            padding: 0.5cm !important;
+            border: 2px solid black !important;
           }
           /* Hide number input spinners */
           input[type=number]::-webkit-inner-spin-button, 
