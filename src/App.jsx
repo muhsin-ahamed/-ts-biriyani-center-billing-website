@@ -40,8 +40,8 @@ function App() {
         {/* Header */}
         <div className="text-center mb-4">
           <h1 className="text-xl font-bold tracking-wide">Ts Biriyan Center</h1>
-          <p className="text-sm mt-1">kurumbadi, perinthalmanna road, Malappuram Dt</p>
-          <p className="text-sm">Ph: 9947929206</p>
+          <p className="text-sm mt-1">Kurumbadi, Perinthalmanna Road, Malappuram Dt</p>
+          <p className="text-sm">Ph: 9847444232</p>
         </div>
 
         <div className="flex items-center justify-center my-4 -mx-6 sm:-mx-8 print:-mx-[0.5cm]">
@@ -168,7 +168,8 @@ function App() {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media print {
           @page {
             margin: 0;
